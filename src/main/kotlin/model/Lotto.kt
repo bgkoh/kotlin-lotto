@@ -1,3 +1,5 @@
+package model
+
 class Lotto(val numbers: Set<Int>) {
     init {
         require(numbers.size == 6)
