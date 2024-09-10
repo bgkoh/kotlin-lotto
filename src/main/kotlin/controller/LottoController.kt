@@ -1,16 +1,22 @@
 package controller
 
+import controller.response.LottoDto
 import model.Lotto
+import model.LottoMachine
 import model.WinningLotto
 import view.InputView
 import view.OutputView
 
 class LottoController(val inputView: InputView, val outputView: OutputView) {
-    fun getPrice(): Int {
+    fun getLotto(): List<Lotto> {
         outputView.printEnterPrice()
         val price = inputView.getPrice()
         require(price > 0)
-        return price;
+        val lottoMachine = LottoMachine()
+        val lotto = lottoMachine.buy(price)
+        val lottoDtoList = lotto.map { LottoDto.from(it) }
+        outputView.printLottos(lottoDtoList)
+        return lotto
     }
 
     fun getWinningLotto(): WinningLotto {

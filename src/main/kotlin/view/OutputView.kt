@@ -1,5 +1,7 @@
 package view
 
+import controller.response.LottoDto
+
 class OutputView {
     fun printEnterPrice() {
         println("구입 급액을 입력해 주세요.")
@@ -11,5 +13,9 @@ class OutputView {
 
     fun printEnterBonus() {
         println("보너스 볼을 입력해 주세요.")
+    }
+
+    fun printLottos(lottos: List<LottoDto>) {
+        lottos.forEach { println(it) }
     }
 }

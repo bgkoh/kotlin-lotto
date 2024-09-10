@@ -7,6 +7,6 @@ fun main() {
     val outputView = OutputView()
     val controller = LottoController(inputView, outputView)
 
-    val price = controller.getPrice()
+    val lottoList = controller.getLotto()
     val winningLotto = controller.getWinningLotto()
 }
