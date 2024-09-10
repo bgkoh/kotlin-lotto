@@ -1,6 +1,7 @@
 package view
 
 import controller.response.LottoDto
+import controller.response.LottoStatisticsDto
 
 class OutputView {
     fun printEnterPrice() {
@@ -17,5 +18,9 @@ class OutputView {
 
     fun printLottos(lottos: List<LottoDto>) {
         lottos.forEach { println(it) }
+    }
+
+    fun printLottoStatistics(statistics: List<LottoStatisticsDto>) {
+        statistics.forEach { println(it) }
     }
 }

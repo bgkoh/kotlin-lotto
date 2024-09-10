@@ -1,8 +1,10 @@
 package controller
 
 import controller.response.LottoDto
+import controller.response.LottoStatisticsDto
 import model.Lotto
 import model.LottoMachine
+import model.LottoStatistics
 import model.WinningLotto
 import view.InputView
 import view.OutputView
@@ -26,4 +28,11 @@ class LottoController(val inputView: InputView, val outputView: OutputView) {
         val bonus = inputView.getBonus()
         return WinningLotto(lotto, bonus)
     }
+
+    fun printLottoStatistics(lotto: List<Lotto>, winningLotto: WinningLotto) {
+        val lottoStatistics = LottoStatistics(lotto, winningLotto)
+        val lottoStatisticDtoList = lottoStatistics.matchCount().map { LottoStatisticsDto.from(it.key, it.value) }
+        outputView.printLottoStatistics(lottoStatisticDtoList)
+    }
+
 }

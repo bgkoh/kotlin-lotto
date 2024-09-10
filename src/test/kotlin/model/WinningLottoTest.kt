@@ -26,42 +26,42 @@ class WinningLottoTest {
     fun `1등 로또를 확인할 수 있다`() {
         val lotto = Lotto(setOf(1,2,3,4,5,6))
         val winningLotto = WinningLotto(Lotto(setOf(1,2,3,4,5,6)), 7)
-        assertThat(winningLotto.rank(lotto)).isEqualTo(1)
+        assertThat(winningLotto.rank(lotto)).isEqualTo(Rank.FIRST)
     }
 
     @Test
     fun `2등 로또를 확인할 수 있다`() {
         val lotto = Lotto(setOf(1,2,3,4,5,7))
         val winningLotto = WinningLotto(Lotto(setOf(1,2,3,4,5,6)), 7)
-        assertThat(winningLotto.rank(lotto)).isEqualTo(2)
+        assertThat(winningLotto.rank(lotto)).isEqualTo(Rank.SECOND)
     }
 
     @Test
     fun `3등 로또를 확인할 수 있다`() {
         val lotto = Lotto(setOf(1,2,3,4,5,8))
         val winningLotto = WinningLotto(Lotto(setOf(1,2,3,4,5,6)), 7)
-        assertThat(winningLotto.rank(lotto)).isEqualTo(3)
+        assertThat(winningLotto.rank(lotto)).isEqualTo(Rank.THIRD)
     }
 
     @Test
     fun `4등 로또를 확인할 수 있다`() {
         val lotto = Lotto(setOf(1,2,3,4,7,8))
         val winningLotto = WinningLotto(Lotto(setOf(1,2,3,4,5,6)), 7)
-        assertThat(winningLotto.rank(lotto)).isEqualTo(4)
+        assertThat(winningLotto.rank(lotto)).isEqualTo(Rank.FOURTH)
     }
 
     @Test
     fun `5등 로또를 확인할 수 있다`() {
         val lotto = Lotto(setOf(1,2,3,7,9,8))
         val winningLotto = WinningLotto(Lotto(setOf(1,2,3,4,5,6)), 7)
-        assertThat(winningLotto.rank(lotto)).isEqualTo(5)
+        assertThat(winningLotto.rank(lotto)).isEqualTo(Rank.FIFTH)
     }
 
     @Test
     fun `6등 로또를 확인할 수 있다`() {
         val lotto = Lotto(setOf(1,2,8,9,10,11))
         val winningLotto = WinningLotto(Lotto(setOf(1,2,3,4,5,6)), 7)
-        assertThat(winningLotto.rank(lotto)).isEqualTo(6)
+        assertThat(winningLotto.rank(lotto)).isEqualTo(Rank.MISS)
     }
 
 }

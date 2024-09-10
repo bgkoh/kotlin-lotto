@@ -9,4 +9,5 @@ fun main() {
 
     val lottoList = controller.getLotto()
     val winningLotto = controller.getWinningLotto()
+    controller.printLottoStatistics(lottoList, winningLotto)
 }
